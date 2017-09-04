@@ -12,7 +12,8 @@ namespace pivotalbankmvctest.EF
         // pass in connection string - this will either be from config or CF env var
         public SchoolContext() : base(Startup.GlobalDbConnectionString)
         {
-
+            // seed
+            Database.SetInitializer(new SchoolDBInitializer());
         }
 
         //public DbSet<Course> Courses { get; set; }
@@ -20,20 +21,23 @@ namespace pivotalbankmvctest.EF
         //public DbSet<Enrollment> Enrollments { get; set; }
         //public DbSet<Instructor> Instructors { get; set; }
         public DbSet<Student> Students { get; set; }
-        //public DbSet<OfficeAssignment> OfficeAssignments { get; set; }
+
         public DbSet<Person> People { get; set; }
 
-        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+    }
 
-        //    modelBuilder.Entity<Course>()
-        //        .HasMany(c => c.Instructors).WithMany(i => i.Courses)
-        //        .Map(t => t.MapLeftKey("CourseID")
-        //            .MapRightKey("InstructorID")
-        //            .ToTable("CourseInstructor"));
+    public class SchoolDBInitializer : DropCreateDatabaseAlways<SchoolContext>
+    {
+        protected override void Seed(SchoolContext context)
+        {
+            IList<Student> defaultStudents = new List<Student>();
 
-        //    modelBuilder.Entity<Department>().MapToStoredProcedures();
-        //}
+            for (int i = 0; i< 5; i++)
+            {
+                context.Students.Add(new Student() { EnrollmentDate = DateTime.Now.AddYears(-i), FirstMidName = $"Firstname {i}", LastName = $"Surname {i}" });
+            }
+
+            base.Seed(context);
+        }
     }
 }

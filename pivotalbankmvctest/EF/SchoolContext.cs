@@ -25,17 +25,20 @@ namespace pivotalbankmvctest.EF
         public DbSet<Person> People { get; set; }
 
     }
-
-    public class SchoolDBInitializer : DropCreateDatabaseIfModelChanges<SchoolContext>
+    
+    // Note: Permissions issue CF
+    public class SchoolDBInitializer : CreateDatabaseIfNotExists<SchoolContext>
     {
         protected override void Seed(SchoolContext context)
         {
             IList<Student> defaultStudents = new List<Student>();
 
-            for (int i = 0; i< 5; i++)
+            for (int i = 0; i < 5; i++)
             {
                 context.Students.Add(new Student() { EnrollmentDate = DateTime.Now.AddYears(-i), FirstMidName = $"Firstname {i}", LastName = $"Surname {i}" });
             }
+
+            Console.WriteLine("Seed on DropCreateDatabaseIfModelChanges with success");
 
             base.Seed(context);
         }

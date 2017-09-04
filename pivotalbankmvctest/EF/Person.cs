@@ -21,6 +21,10 @@ namespace pivotalbankmvctest.EF
         [Display(Name = "First Name")]
         public string FirstMidName { get; set; }
 
+        [Column("test")]
+        [Display(Name = "test")]
+        public string Test { get; set; }
+
         [Display(Name = "Full Name")]
         public string FullName
         {

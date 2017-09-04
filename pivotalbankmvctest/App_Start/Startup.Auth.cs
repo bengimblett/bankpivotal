@@ -11,6 +11,9 @@ namespace pivotalbankmvctest
 {
     public partial class Startup
     {
+        // use this for now to hold the connection string we rebuild - as we can then reference using EF (passing to ef app context)
+        internal static string GlobalDbConnectionString;
+
         // For more information on configuring authentication, please visit https://go.microsoft.com/fwlink/?LinkId=301864
         public void ConfigureAuth(IAppBuilder app)
         {

@@ -1,0 +1,28 @@
+{
+  "azure-sqldb": [
+   {
+    "credentials": {
+     "databaseLogin": "u0cd0cebded6",
+     "databaseLoginPassword": "VNHyKq6EbLR7",
+     "hostname": "u3e269cd6b1b.database.windows.net",
+     "jdbcUrl": "jdbc:sqlserver://u3e269cd6b1b.database.windows.net:1433;database=ud4bcb39eae3;user=u0cd0cebded6;password=VNHyKq6EbLR7;Encrypt=true;TrustServerCertificate=false;HostNameInCertificate=*.database.windows.net;loginTimeout=30;",
+     "jdbcUrlForAuditingEnabled": "jdbc:sqlserver://u3e269cd6b1b.database.secure.windows.net:1433;database=ud4bcb39eae3;user=u0cd0cebded6;password=VNHyKq6EbLR7;Encrypt=true;TrustServerCertificate=false;HostNameInCertificate=*.database.secure.windows.net;loginTimeout=30;",
+     "name": "ud4bcb39eae3",
+     "password": "VNHyKq6EbLR7",
+     "port": 1433,
+     "sqlServerFullyQualifiedDomainName": "u3e269cd6b1b.database.windows.net",
+     "sqlServerName": "u3e269cd6b1b",
+     "sqldbName": "ud4bcb39eae3",
+     "uri": "mssql://u0cd0cebded6:VNHyKq6EbLR7@u3e269cd6b1b.database.windows.net:1433/ud4bcb39eae3?encrypt=true\u0026TrustServerCertificate=false\u0026HostNameInCertificate=%2A.database.windows.net",
+     "username": "u0cd0cebded6"
+    },
+    "label": "azure-sqldb",
+    "name": "pivotalbankdb",
+    "plan": "basic",
+    "provider": null,
+    "syslog_drain_url": null,
+    "tags": [],
+    "volume_mounts": []
+   }
+  ]
+ }

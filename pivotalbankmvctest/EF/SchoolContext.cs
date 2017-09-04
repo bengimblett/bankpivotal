@@ -26,7 +26,7 @@ namespace pivotalbankmvctest.EF
 
     }
 
-    public class SchoolDBInitializer : DropCreateDatabaseAlways<SchoolContext>
+    public class SchoolDBInitializer : DropCreateDatabaseIfModelChanges<SchoolContext>
     {
         protected override void Seed(SchoolContext context)
         {
